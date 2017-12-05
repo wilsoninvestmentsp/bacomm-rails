@@ -32,3 +32,5 @@
 
 production:
   url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  adapter: mysql2
+  host: localhost
