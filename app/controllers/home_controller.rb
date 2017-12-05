@@ -31,11 +31,11 @@ class HomeController < ApplicationController
 
   def set_params
     @params = {
-      group_urlname: 'BACOMM',
+      group_urlname: Settings.meetup.group_urlname,
       scroll: 'future_or_past',
       status: 'upcoming,past', 
       format: 'json', 
-      page: 3,
+      page: Settings.meetup.per_page,
       desc: true,
       limited_events: true
     }

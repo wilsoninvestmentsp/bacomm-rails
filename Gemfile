@@ -47,3 +47,4 @@ end
 gem "haml-rails", "~> 1.0"
 gem 'meetup_client'
 gem 'pry-rails', :group => :development
+gem 'config'
