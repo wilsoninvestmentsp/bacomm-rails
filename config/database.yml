@@ -28,7 +28,6 @@ development:
 
 production:
   adapter: mysql2
-  host: localhost
   username: bd8fceb7b70963
   password: 068071e1
   url: <%= ENV['DATABASE_URL'] %>
