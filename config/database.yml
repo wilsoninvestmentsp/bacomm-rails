@@ -15,6 +15,7 @@ default: &default
   database: bacomm
   username: root
   password: root
+  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
@@ -27,3 +28,5 @@ test:
 
 production:
   <<: *default
+
+
