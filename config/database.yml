@@ -9,16 +9,16 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
-# default: &default
-#   adapter: mysql2
-#   host: localhost
-#   database: bacomm
-#   username: root
-#   password: root
-#   socket: /var/run/mysqld/mysqld.sock
+default: &default
+  adapter: mysql2
+  host: localhost
+  database: bacomm
+  username: root
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
 
-# development:
-#   <<: *default
+development:
+  <<: *default
 
 # # Warning: The database defined as "test" will be erased and
 # # re-generated from your development database when you run "rake".
@@ -26,12 +26,9 @@
 # test:
 #   <<: *default
 
-# production:
-#   <<: *default
-
-
 production:
   adapter: mysql2
   host: localhost
+  username: bd8fceb7b70963
+  password: 068071e1
   url: <%= ENV['DATABASE_URL'] %>
-  
