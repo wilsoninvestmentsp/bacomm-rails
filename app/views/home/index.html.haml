@@ -1,0 +1,96 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %a.navbar-brand{:href => "http://www.tomwilsonproperties.com", :target => "_blank"}
+        = image_tag "twp-logo.jpg", class: 'img-responsive'
+      %a.company-logo{:href => "#"}
+        = image_tag "bacomm-logo_small.png", class: 'img-responsive'
+%header.parallax-bg.header-bg
+  %h1
+    %span> B
+    ay
+    = succeed "rea" do
+      %span A
+    = succeed "mercial" do
+      %span Com
+    = succeed "ulti" do
+      %span M
+  %ul
+    %li Empowering investors of all experience levels to gain tools and knowledge to evaluate commercial &amp; multifamily real estate investments.
+    %li Advance from rental homes and move up to the big leagues of real estate investing.
+    %li Network with other investors and professionals in the field.
+%section.container
+  .row
+    .col-md-3.col-sm-4.col-xs-12.text-center
+      = image_tag "tomwilson.jpg", class: 'img-responsive', alt: "Tom K Wilson"
+    .col-md-9.col-sm-8.col-xs-12.intro-content
+      %p Tom K. Wilson is a 5 decade real estate investing veteran who has bought and sold over 4,000 units and over $450M of real estate in 6 states, including three condo conversion projects, 17 syndications, 8 multifamily, 13 commercial, and over 600 residential properties.
+      %p Afterthirty years of managing some ofthe Silicon Valley’s pioneering technology companies, Mr. Wilson put his business and management experience toward fulltime investing. Mr. Wilson is the weekly host ofthe Real Estate Radio POWER investing radio program on KDOW 1220 am every Wednesday at 2 pm PST and is a popular speaker on real estate investing.
+  .row.team-block
+    .col-sm-3.col-xs-12
+      = image_tag "user-1.png", class: 'img-responsive'
+      %h4 Neil Wahlgren
+      %h5 Director of Operations
+    .col-sm-3.col-xs-12
+      = image_tag "user-2.png", class: 'img-responsive'
+      %h4 Mike Priolo
+      %h5 Director of Business Development
+    .col-sm-3.col-xs-12
+      = image_tag "user-3.png", class: 'img-responsive'
+      %h4 Mathilda Joensson
+      %h5 Director of Finance
+    .col-sm-3.col-xs-12
+      = image_tag "user-4.png", class: 'img-responsive'
+      %h4 Jennifer Zhang
+      %h5 Marketing Manager
+%section.text-center.meetup-bg
+  %h3 Join Our Events
+  -# %a.btn.join-us{:href => "https://www.meetup.com/bacomm/", :target => "_blank"}
+  -#   Join Us
+  -#   %span.fa.fa-angle-right{"aria-hidden" => "true"}
+
+%section.container
+  #event-listing
+    - if @events.present?
+      = render partial: 'events', locals: {events: @events}
+    - else
+      %h3.text-muted No upcoming events
+
+  - if @next_page.present?
+    .text-center.pad-btm-5.load_more_events
+      = hidden_field_tag 'next_page', @next_page
+      = button_tag id: 'load_more_events', class: 'btn load-more' do
+        %i.fa.fa-th{"aria-hidden" => "true"}
+        More Events
+
+%footer
+  .container
+    .row
+      .col-sm-6.col-xs-12.links-1
+        %ul.list-inline
+          %li
+            %a{:href => "mailto:info@tomwilsonproperties.com"}
+              %span.fa.fa-envelope-o{"aria-hidden" => "true"}
+              info@tomwilsonproperties.com
+          %li
+            %span.fa.fa-phone
+            408-867-1867
+      .col-sm-6.col-xs-12.links-2
+        %ul.list-inline
+          %li
+            %a{:href => "http://www.tomwilsonproperties.com", :target => "_blank"}
+              %span.fa.fa-globe
+              www.tomwilsonproperties.com
+          %li
+            %span.fa.fa-map-marker
+            Saratoga, CA
+
+
+%script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+%script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+= javascript_include_tag "application"
+=# javascript_include_tag "jquery.parallax-1.1.3.js"
+:javascript
+  $(document).ready(function(){
+    $('.parallax-bg').parallax("50%",.63);
+  });
