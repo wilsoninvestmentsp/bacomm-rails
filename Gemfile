@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.8'
 # Use mysql as the database for Active Record
 # gem 'mysql2', '>= 0.3.13', '< 0.5'
-gem 'pg'
+gem 'pg', '~> 0.20.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -49,3 +49,4 @@ gem "haml-rails", "~> 1.0"
 gem 'meetup_client'
 gem 'pry-rails', :group => :development
 gem 'config'
+
