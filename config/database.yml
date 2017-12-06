@@ -38,10 +38,10 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
-  database: bacomm-rails
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  # adapter: mysql2
+  # database: bacomm-rails
+  # username: <%= ENV['DB_USERNAME'] %>
+  # password: <%= ENV['DB_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
 
 development:
