@@ -12,7 +12,6 @@ class HomeController < ApplicationController
   def get_events(params)
     @meetup_api = MeetupApi.new
     events = @meetup_api.events(params)
-    binding.pry
     events(events)
   end
 
