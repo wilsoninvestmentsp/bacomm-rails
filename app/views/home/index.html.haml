@@ -6,12 +6,21 @@
       %a.company-logo{:href => "#"}
         = image_tag "bacomm-logo_small.png", class: 'img-responsive'
 %header.parallax-bg.header-bg
-  %h1
-    Bay Area Commercial &amp; Multifamily
-  %ul
-    %li Empowering investors of all experience levels to gain tools and knowledge to evaluate commercial &amp; multifamily real estate investments.
-    %li Advance from rental homes and move up to the big leagues of real estate investing.
-    %li Network with other investors and professionals in the field.
+  .container.text-center
+    %a.intro-logo{:href => "http://www.bacomm.club"}
+      = image_tag "bacomm-logo-white.png", class: 'img-responsive'
+    %h1
+      Bay Area Commercial &amp; Multifamily
+    %ul.text-justify
+      %li Empowering investors of all experience levels to gain tools and knowledge to evaluate commercial &amp; multifamily real estate investments.
+      %li Advance from rental homes and move up to the big leagues of real estate investing.
+      %li Network with other investors and professionals in the field.
+    .btn-block
+      %a.lt-btn{:href => "https://www.meetup.com/bacomm/", target:'_blank'}
+        Signup on Meetup
+      %a.rt-btn{:href => "https://www.facebook.com/bacommclub", target:'_blank'}
+        Watch on Facebook Live
+
 %section.container
   .row
     .col-md-3.col-sm-4.col-xs-12.text-center
