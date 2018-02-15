@@ -68,13 +68,13 @@ header{
     display:inline-block;
     position:relative;
     margin-bottom:25px;
-    img{height:70px}
+    img{height:120px}
   }
   .btn-block{
     display:inline-table;
     max-width:768px;
     margin:0 auto;
-    margin-top:30px;
+    margin-top:45px;
   }
   .lt-btn{margin-right:30px}
   .rt-btn,
@@ -84,7 +84,7 @@ header{
     padding:10px 30px;
     color:#fff;
     text-decoration:none;
-    font-size:16px;
+    font-size:18px;
     border-radius:4px;
     transition:all .45s ease-in-out
   }
@@ -92,7 +92,7 @@ header{
     margin-top:0;
     margin-bottom:15px!important;
     position:relative;
-    font-size:30px;
+    font-size:34px;
     text-transform:uppercase;
     font-weight:500;
     letter-spacing:2px
@@ -261,6 +261,7 @@ a,a:hover,a:focus,a:active,.btn,.btn:focus,.btn:active{
     h1{padding:0 15px;text-align:center}
     .lt-btn,.rt-btn{font-size:14px;padding:7px 14px}
     .intro-logo{display:none}
+    .btn-block{margin-top:15px}
   }
   .intro-content{margin-top:30px}
   .team-block h5{margin-bottom:30px}.team-block .col-xs-12:last-child h5{margin-bottom:0}.meetup-bg{height:300px}footer ul{text-align:center}footer ul li{padding:8px 0}}
@@ -282,7 +283,7 @@ a,a:hover,a:focus,a:active,.btn,.btn:focus,.btn:active{
     .join-us{min-width:150px;font-size:18px;padding:12px 0}
   }
   @media(max-width:480px) and (orientation:landscape){
-    .header-bg{height:430px!important;background-size:200%}
+    .header-bg{height:380px!important;background-size:200%}
   }
   @media(max-width:480px) and (orientation:portrait){
     .header-bg{background-size:350%}
