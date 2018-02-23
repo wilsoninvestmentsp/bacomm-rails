@@ -1,0 +1,59 @@
+<section class="top-bg">
+  <div class="top-bg-inner">
+    <div class="container">
+      <div class="breadcrumb-top">
+        <ol class="breadcrumb white">
+          <li><%= link_to 'Home', root_path %></li>
+          <li class="active">Resources</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container page-body resources-listing">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Resources of Real Estate Investment Properties</h1>
+      <% if current_user %>
+      <span class="btn-span add-resource pull-right">
+        <%= link_to new_resource_path, class: 'btn gold-btn' do %>
+          <i class="fa fa-plus" aria-hidden="true"></i> New
+        <% end %>
+      </span>
+      <%= render 'shared/flash' if flash[:success].present? %>
+      <% end %>
+      <% if @resources.present? %>
+        <div class="list-group">
+          <% @resources.each do |resource| %>
+            <div class="list-group-item resources-data">
+              <div class="row">
+                <div class="col-md-2 col-sm-3">
+                  <%= image_tag resource.image.thumb.url || 'no-img_150.png', class: 'resource-img', alt: resource.title %>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                  <h4><%= resource.title %></h4>
+                  <p><span><%= resource.description %></span></p>
+                  <%= link_to resource.link_uri, target: '_blank', class: 'btn gold-btn' do %>
+                    <i class="fa fa-download fa-lg" aria-hidden="true"></i> <%= resource.link_name %>
+                  <% end %>
+                  <% if current_user %>
+                    <%= link_to edit_resource_path(resource), class: 'btn btn-success', title: 'Edit' do %>
+                      <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                    <% end %>
+                    <%= link_to resource_path(resource), method: :delete, data: { confirm: 'Are you sure you wish to delete this Resource? This CANNOT be undone.' }, class: 'btn btn-danger', title: 'Delete' do %>
+                      <i class="fa fa-trash" aria-hidden="true"></i> Delete
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-xs-12 msg-content text-center">
+          <h3>No resources found</h3>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

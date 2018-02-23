@@ -1,0 +1,57 @@
+<%= form_for(@resource) do |f| %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group required">
+      <label for="resource_title">Title <span class="text-red">*</span></label><br>
+      <%= f.text_field :title, class: 'form-control'%>
+      <span class="text-red"><%=  show_errors(@resource, :title)%></span>
+    </div>
+    <div class="form-group">
+      <label for="resource_description">Description</label><br>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div class="form-group required">
+      <label for="resource_link_name">Link Name <span class="text-red">*</span></label><br>
+      <%= f.text_field :link_name, class: 'form-control'%>
+      <span class="text-red"><%=show_errors(@resource, :link_name)%></span>
+    </div>
+    <div class="form-group required">
+      <label for="resource_link_uri">Link URL <span class="text-red">*</span></label><br>
+      <%= f.text_field :link_uri, class: 'form-control'%>
+      <span class="text-red"><%= show_errors(@resource, :link_uri)%></span>
+    </div>
+    <div class="form-group">
+      <label for="resource_image">Image</label><br>
+      <% if controller.action_name == "edit" %>
+        <%= image_tag @resource.image.thumb.url || 'no-image.png', class: 'img-thumbnail', id: 'image' %>
+      <%else%>
+        <%= image_tag @resource.image.thumb.url || 'no-image-flat.png', class: 'img-thumbnail', id: 'image' %>
+      <%end%>
+      <div>
+        <%= f.label :image, class: 'btn btn-success browse-btn' do %><i class="fa fa-picture-o mar-right-6" aria-hidden="true"></i> Choose File
+        <%= f.file_field :image, style: "display:none;" %>
+      </div>
+      <span class="text-red"><%= show_errors(@resource, :image)%></span>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= button_tag class: 'btn gold-btn btn-lg', type: 'submit' do %><i class="fa fa-check" aria-hidden="true"></i> Submit<% end %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+<script>
+  $(document).ready(function () {
+    $("#resource_image").on('change',function (e) {
+      var file = this.files[0];
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $("#image").attr('src', e.target.result);
+        $("#resource_image").attr('src', e.target.result);
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+</script>

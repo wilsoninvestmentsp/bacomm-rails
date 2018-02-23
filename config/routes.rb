@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: 'users/sessions',
+                                    registrations: 'users/registrations',
+                                    passwords: 'users/passwords',
+                                    invitations: 'users/invitations',
+                                    confirmation: 'users/confirmation' }
   get 'home/index'
   get 'more_events' => 'home#more_events'
+  resources :resources
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

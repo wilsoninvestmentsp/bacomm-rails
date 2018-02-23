@@ -31,7 +31,7 @@ class HomeController < ApplicationController
   def set_params
     @params = {
       group_urlname: Settings.meetup.group_urlname,
-      format: 'json', 
+      format: 'json',
       page: Settings.meetup.per_page
     }
   end

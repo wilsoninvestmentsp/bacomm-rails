@@ -1,0 +1,39 @@
+<section class="top-bg">
+  <div class="top-bg-inner">
+    <div class="container">
+      <div class="breadcrumb-top">
+        <ol class="breadcrumb white">
+          <li><%= link_to 'Home', root_url %></li>
+          <li><%= link_to 'Resources', resources_url %></li>
+          <li class="active">Show</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container page-body">
+  <div class="msg"><%= render 'shared/flash' if flash[:success].present? %></div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="admin-body">
+        <h1>Resource</h1>
+        <div class="mar-top-30 mar-btm-30 preview-resource">
+          <dl class="dl-horizontal">
+            <dt>Title:</dt>
+            <dd><%= @resource.title %></dd>
+            <dt>Description:</dt>
+            <dd><%= @resource.description %></dd>
+            <dt>Link Name:</dt>
+            <dd><%= @resource.link_name %></dd>
+            <dt>Link URL:</dt>
+            <dd class="wrd-brk"><%= @resource.link_uri %></dd>
+            <dt>Image:</dt>
+            <dd><%= image_tag @resource.image.thumb.url || 'no-img_150.png', class: 'img-thumbnail', style:'max-width:100px' %></dd>
+          </dl>
+          <%= link_to 'Edit', edit_resource_path(@resource), class: 'btn gold-btn' %>
+          <%= link_to 'Back', resources_path, class: 'btn blue-btn btn-back' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

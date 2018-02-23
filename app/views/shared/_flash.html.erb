@@ -1,0 +1,17 @@
+<% unless flash.empty? %>
+  <% flash.each do |name, message| %>
+    <div class="text-center alert alert-<%= flash_msg_name(name) %> fade in alert-dismissable">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">&times;</a>
+      <% if message.is_a?Array %>
+        <% message.each do |msg| %>
+        <%= msg.html_safe %>
+        <% end %>
+      <% else %>
+        <%= message.html_safe %>
+      <% end%>
+    </div>
+  <% end %>
+<%
+   flash.clear
+   end
+%>

@@ -1,0 +1,26 @@
+<section class="top-bg">
+  <div class="top-bg-inner">
+    <div class="container">
+      <div class="breadcrumb-top">
+        <ol class="breadcrumb white">
+          <li><%= link_to 'Home',root_url %></li>
+          <li><%= link_to 'Resources', resources_url %></li>
+          <li class="active"><%= @resource.title.present? ? @resource.title : @resource.id %></li>
+          <li class="active">Edit</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container page-body">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="admin-body">
+        <h1>Editing <%= @resource.title %></h1>
+        <div class="mar-top-30 mar-btm-30">
+          <%= render "form" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
