@@ -16,7 +16,7 @@
                   <%= event_venue['address_1'] %><br>
                   <%= "#{event_venue['city']}, #{event_venue['state']}" %>
                 </p>
-                <%= image_tag "#{event["photo_url"]}", class: 'img-thumbnail img-responsive' %>
+                <%= image_tag "#{event['photo_url'].sub('global', 'highres')}", class: 'img-thumbnail img-responsive' %>
               </div>
             </div>
           </div>
