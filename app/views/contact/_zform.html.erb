@@ -1,0 +1,106 @@
+<div id='crmWebToEntityForm'>
+ <META HTTP-EQUIV ='content-type' CONTENT='text/html;charset=UTF-8'>
+ <form action='https://crm.zoho.com/crm/WebToContactForm'  name=WebToContacts3309283000000178078 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory()' accept-charset='UTF-8'>
+
+   <div class="row">
+    <div class="col-md-6">
+
+     <!-- Do not remove this code. -->
+     <input type='text' style='display:none;' name='xnQsjsdp' value='38dff1cdf939661b6cd2a2302444c15e308f127b4720e54993895804ef8794ef'/>
+     <input type='hidden' name='zc_gad' id='zc_gad' value=''/>
+     <input type='text' style='display:none;' name='xmIwtLD' value='3e4679476bd82d722668ed1ebd2fc9ad58311a76ee4a4279732ae03cbe6e7595'/>
+     <input type='text' style='display:none;'  name='actionType' value='Q29udGFjdHM='/>
+
+     <input type='text' style='display:none;' name='returnURL' value='http&#x3a;&#x2f;&#x2f;www.bacomm.club&#x2f;' />
+
+
+
+    <div class="form-group required">
+      <label for="resource_title">First Name <span class="text-red">*</span></label><br>
+      <input type='text' class='form-control'  maxlength='40' name='First Name' />
+    </div>
+    <div class="form-group required">
+      <label for="resource_title">Last Name <span class="text-red">*</span></label><br>
+      <input type='text' class='form-control'  maxlength='80' name='Last Name' />
+    </div>
+    <div class="form-group required">
+      <label for="resource_title">Email ID <span class="text-red">*</span></label><br>
+      <input type='text' class='form-control'  maxlength='100' name='Email' />
+    </div>
+    <div class="form-group">
+      <label for="resource_title">Contact</label><br>
+      <input type='text' class='form-control'  maxlength='50' name='Phone' />
+    </div>
+    <!-- <div class="form-group">
+      <label for="resource_title">From Where</label><br>
+      <select class='form-control' name='CONTACTCF1'>
+        <option value='-None-'>-None-</option>
+        <option value='Web&#x20;Search'>Web Search</option>
+        <option value='Event'>Event</option>
+        <option value='Print&#x20;Media'>Print Media</option>
+        <option value='Radio&#x20;Show'>Radio Show</option>
+        <option value='Referral'>Referral</option>
+        <option value='Loopnet'>Loopnet</option>
+        <option value='Bigger&#x20;Pockets'>Bigger Pockets</option>
+        <option value='Social&#x20;Media'>Social Media</option>
+      </select>
+    </div> -->
+    <div class="form-group">
+      <label for="resource_title">Message</label><br>
+      <textarea name='Description' maxlength='32000' class='form-control'>&nbsp;</textarea>
+      <input type='text' style='display:none;'  maxlength='255' name='CONTACTCF2' value="Website" />
+      <input type='text' style='display:none'  maxlength='255' name='CONTACTCF5' value="BACOMM" />
+    </div>
+
+
+    <div class="form-group">
+      <input class='btn gold-btn btn-lg'  type='submit' value='Submit' />
+    </div>
+  </div>
+</div>
+
+<script>
+  var mndFileds=new Array('Last Name');
+  var fldLangVal=new Array('Last Name');
+  var name='';
+  var email='';
+
+  function checkMandatory() {
+    for(i=0;i<mndFileds.length;i++) {
+      var fieldObj=document.forms['WebToContacts3309283000000178078'][mndFileds[i]];
+      if(fieldObj) {
+        if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+         if(fieldObj.type =='file')
+         {
+           alert('Please select a file to upload.');
+           fieldObj.focus();
+           return false;
+         }
+         alert(fldLangVal[i] +' cannot be empty.');
+         fieldObj.focus();
+         return false;
+       }  else if(fieldObj.nodeName=='SELECT') {
+         if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+          alert(fldLangVal[i] +' cannot be none.');
+          fieldObj.focus();
+          return false;
+        }
+      } else if(fieldObj.type =='checkbox'){
+       if(fieldObj.checked == false){
+        alert('Please accept  '+fldLangVal[i]);
+        fieldObj.focus();
+        return false;
+      }
+    }
+    try {
+     if(fieldObj.name == 'Last Name') {
+      name = fieldObj.value;
+    }
+  } catch (e) {}
+}
+}
+}
+
+</script>
+</form>
+</div>

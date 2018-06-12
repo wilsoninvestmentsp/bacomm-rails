@@ -1,0 +1,106 @@
+<!-- Note :
+   - You can modify the font style and form style to suit your website.
+   - Code lines with comments ���Do not remove this code���  are required for the form to work properly, make sure that you do not remove these lines of code.
+   - The Mandatory check script can modified as to suit your business needs.
+   - It is important that you test the modified form before going live.-->
+<div id='crmWebToEntityForm' style='width:600px;margin:auto;margin-top: 100px;'>
+   <META HTTP-EQUIV ='content-type' CONTENT='text/html;charset=UTF-8'>
+   <form action='https://crm.zoho.com/crm/WebToContactForm'  name=WebToContacts3309283000000178078 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory()' accept-charset='UTF-8'>
+
+   <!-- Do not remove this code. -->
+  <input type='text' style='display:none;' name='xnQsjsdp' value='38dff1cdf939661b6cd2a2302444c15e308f127b4720e54993895804ef8794ef'/>
+  <input type='hidden' name='zc_gad' id='zc_gad' value=''/>
+  <input type='text' style='display:none;' name='xmIwtLD' value='3e4679476bd82d722668ed1ebd2fc9ad58311a76ee4a4279732ae03cbe6e7595'/>
+  <input type='text' style='display:none;'  name='actionType' value='Q29udGFjdHM='/>
+
+  <input type='text' style='display:none;' name='returnURL' value='http&#x3a;&#x2f;&#x2f;www.bacomm.club&#x2f;' />
+   <!-- Do not remove this code. -->
+  <style>
+    tr , td {
+      padding:6px;
+      border-spacing:0px;
+      border-width:0px;
+      }
+  </style>
+  <table style='width:600px;background-color:white;color:black'>
+
+  <tr><td colspan='2' style='text-align:left;color:black;font-family:Arial;font-size:14px;'><strong>ZohoContact</strong></td></tr>
+
+  <tr><td  style='nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;'>First Name</td><td style='width:250px;' ><input type='text' style='width:250px;'  maxlength='40' name='First Name' /></td></tr>
+
+  <tr><td  style='nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;'>Last Name<span style='color:red;'>*</span></td><td style='width:250px;' ><input type='text' style='width:250px;'  maxlength='80' name='Last Name' /></td></tr>
+
+  <tr><td  style='nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;'>Email</td><td style='width:250px;' ><input type='text' style='width:250px;'  maxlength='100' name='Email' /></td></tr>
+
+  <tr><td  style='nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;'>Phone</td><td style='width:250px;' ><input type='text' style='width:250px;'  maxlength='50' name='Phone' /></td></tr>
+
+  <tr><td  style='nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;'>Investor Source</td><td style='width:250px;' ><input type='text' style='width:250px;'  maxlength='255' name='CONTACTCF2' /></td></tr>
+
+  <tr><td  style='nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;'>Contact Type</td><td style='width:250px;' ><input type='text' style='width:250px;'  maxlength='255' name='CONTACTCF5' /></td></tr>
+
+  <tr><td  style='nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;'>Hear From</td><td style='width:250px;'>
+    <select style='width:250px;' name='CONTACTCF1'>
+      <option value='-None-'>-None-</option>
+      <option value='Web&#x20;Search'>Web Search</option>
+      <option value='Event'>Event</option>
+      <option value='Print&#x20;Media'>Print Media</option>
+      <option value='Radio&#x20;Show'>Radio Show</option>
+      <option value='Referral'>Referral</option>
+      <option value='Loopnet'>Loopnet</option>
+      <option value='Bigger&#x20;Pockets'>Bigger Pockets</option>
+      <option value='Social&#x20;Media'>Social Media</option>
+    </select></td></tr>
+
+  <tr><td  style='nowrap:nowrap;text-align:left;font-size:12px;font-family:Arial;width:200px;'>Description </td><td> <textarea name='Description' maxlength='32000' style='width:250px;'>&nbsp;</textarea></td></tr>
+
+  <tr><td colspan='2' style='text-align:center; padding-top:15px;font-size:12px;'>
+    <input style='font-size:12px;color:black'  type='submit' value='Submit' />
+    <input  type='reset' style='font-size:12px;color:black' value='Reset' />
+      </td>
+  </tr>
+   </table>
+  <script>
+    var mndFileds=new Array('Last Name');
+    var fldLangVal=new Array('Last Name');
+    var name='';
+    var email='';
+
+    function checkMandatory() {
+    for(i=0;i<mndFileds.length;i++) {
+      var fieldObj=document.forms['WebToContacts3309283000000178078'][mndFileds[i]];
+      if(fieldObj) {
+      if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+       if(fieldObj.type =='file')
+        {
+         alert('Please select a file to upload.');
+         fieldObj.focus();
+         return false;
+        }
+      alert(fldLangVal[i] +' cannot be empty.');
+              fieldObj.focus();
+              return false;
+      }  else if(fieldObj.nodeName=='SELECT') {
+             if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+        alert(fldLangVal[i] +' cannot be none.');
+        fieldObj.focus();
+        return false;
+         }
+      } else if(fieldObj.type =='checkbox'){
+       if(fieldObj.checked == false){
+        alert('Please accept  '+fldLangVal[i]);
+        fieldObj.focus();
+        return false;
+         }
+       }
+       try {
+           if(fieldObj.name == 'Last Name') {
+        name = fieldObj.value;
+          }
+      } catch (e) {}
+        }
+    }
+       }
+
+</script>
+  </form>
+</div>

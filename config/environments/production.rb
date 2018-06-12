@@ -81,5 +81,7 @@ Rails.application.configure do
 
   # MeetUp
   MEETUP_API_KEY = ENV['MEETUP_API_KEY']
+
+  ZOHO_API_KEY = ENV['ZOHO_API_KEY']
 end
 

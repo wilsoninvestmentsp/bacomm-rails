@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+
+
   devise_for :users, controllers: { sessions: 'users/sessions',
                                     registrations: 'users/registrations',
                                     passwords: 'users/passwords',
@@ -13,6 +16,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+
+  get 'contact', to: 'contact#new'
+  post 'contact', to: 'contact#create', as: 'save_contact'
+  get 'contact/zoho', to: 'contact#zoho_contact'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,34 @@
+<%= form_for(:contact) do |f| %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group required">
+      <label for="resource_title">First Name <span class="text-red">*</span></label><br>
+      <%= f.text_field :first_name, class: 'form-control'%>
+    </div>
+    <div class="form-group required">
+      <label for="resource_title">Last Name <span class="text-red">*</span></label><br>
+      <%= f.text_field :last_name, class: 'form-control'%>
+    </div>
+    <div class="form-group required">
+      <label for="resource_title">Email ID <span class="text-red">*</span></label><br>
+      <%= f.text_field :email, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <label for="resource_title">Phone</label><br>
+      <%= f.text_field :phone, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <label for="resource_title">Message</label><br>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <!-- <div class="form-group">
+      <label for="resource_title">From Where</label><br>
+      <%= select_tag(:hear_from, options_for_select(ContactHelper::HEAR_FROM_OPTIONS), class: 'form-control')%>
+    </div> -->
+
+    <div class="form-group">
+      <%= button_tag class: 'btn gold-btn btn-lg', type: 'submit' do %><i class="fa fa-check" aria-hidden="true"></i> Submit<% end %>
+    </div>
+  </div>
+</div>
+<% end %>

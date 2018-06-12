@@ -25,7 +25,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'carrierwave'
+gem 'cloudinary'
 gem 'rmagick'
+gem 'figaro'
+gem 'config'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,3 +54,4 @@ gem "haml-rails", "~> 1.0"
 gem 'meetup_client'
 gem 'pry-rails', :group => :development
 gem 'config'
+gem 'rubyzoho'
