@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
 	before_action :set_resource, only: %i[show edit destroy update]
 
 	def index
-    @resources = Resource.latest
+    @resources = Resource.all
 	end
 
   def new
