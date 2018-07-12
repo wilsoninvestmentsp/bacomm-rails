@@ -485,6 +485,18 @@ label.btn-default{
 .wrd-brk{word-break:break-all}
 .index-msg-alert{position:fixed;top:80px;width:100%;z-index:99;border-radius:0}
 .index-msg-alert .alert{border-radius:0}
+
+.list-selection{margin:40px 0 30px 0}
+.list-selection .list-unstyled{margin:0;display:table;width:100%;border-bottom:solid 1px #ddd}
+.list-selection .list-unstyled li{float:left;border-top-left-radius:4px;border-top-right-radius:4px;margin-right:4px;background:#f5f5f5}
+.list-selection .list-unstyled li a{padding:13px 25px;display:inline-block;color:#444;text-decoration:none}
+.list-selection .list-unstyled li.active,
+.list-selection .list-unstyled li.active:hover{color:#fff;background:#407cbb}
+.list-selection .list-unstyled li.active a,
+.list-selection .list-unstyled li.active:hover a{color:#fff}
+.list-selection .list-unstyled li:hover{background:#e5e5e5}
+.list-selection .list-unstyled li:hover a{color:#407cbb}
+
 @media(min-width:1200px){
   .header-bg{
     height:100vh;
