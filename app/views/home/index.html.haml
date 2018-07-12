@@ -35,6 +35,13 @@
   -#   Join Us
   -#   %span.fa.fa-angle-right{"aria-hidden" => "true"}
 %section.container.events-data
+  .list-selection
+    %ul#building_type_menu.list-unstyled
+      %li{class: (params[:events] == 'past')? '' : 'active'}
+        %a{:href => root_url } Upcoming Events
+      %li{ class: (params[:events] == 'past')? 'active' : '' }
+        %a{:href => root_url(events: :past) } Past Events
+        
   #event-listing
     - if @events.present?
       = render partial: 'events', locals: {events: @events}
