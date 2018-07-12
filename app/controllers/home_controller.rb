@@ -2,16 +2,15 @@ class HomeController < ApplicationController
   before_action :set_params, only: [:index, :more_events]
 
   def index
-    get_events(@params)
+    get_events(@meetup_params)
   end
 
   def more_events
-    get_events(@params.merge(offset: params[:offset])) if params[:offset].present?
+    get_events(@meetup_params.merge(offset: params[:offset])) if params[:offset].present?
   end
 
-  def get_events(params)
-    @meetup_api = MeetupApi.new
-    events = @meetup_api.events(params)
+  def get_events(meetup_params)
+    events = MeetupApi.new.events(meetup_params)
     events(events)
   end
 
@@ -29,11 +28,11 @@ class HomeController < ApplicationController
   private
 
   def set_params
-    @params = {
+    @meetup_params = {
       group_urlname: Settings.meetup.group_urlname,
       format: 'json',
       page: Settings.meetup.per_page
     }
-    @params.merge!(status: params[:events]) if params[:events].present?
+    @meetup_params[:status] = params[:events] if params[:events].present?
   end
 end

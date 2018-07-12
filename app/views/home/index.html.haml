@@ -23,12 +23,12 @@
       %p Tom K. Wilson is a 5 decade real estate investing veteran who has bought and sold over 4,000 units and over $450M of real estate in 6 states, including three condo conversion projects, 17 syndications, 8 multifamily, 13 commercial, and over 600 residential properties.
       %p After thirty years of managing some of the Silicon Valley’s pioneering technology companies, Mr. Wilson put his business and management experience toward fulltime investing. Mr. Wilson is the weekly host ofthe Real Estate Radio POWER investing radio program on KDOW 1220 am every Wednesday at 2 pm PST and is a popular speaker on real estate investing.
   %hr
-  .row.mr-top-35 
-    .col-md-3.col-sm-4.col-xs-12.text-center.pull-right 
+  .row.mr-top-35
+    .col-md-3.col-sm-4.col-xs-12.text-center.pull-right
       = image_tag "jennifer.png", class: 'img-responsive img-right'
     .col-md-9.col-sm-8.col-xs-12.intro-content.pull-left
       %p Jennifer is the Organizer of BACOMM and manages all events and marketing at Wilson Investment Properties, the sponsor company for BACOMM. Jennifer managed a product roadshows business for two years, where she developed herself in speaking to crowds and engaging at people. Since her first real estate investing seminar in early 2016, Jennifer is now an investor in commercial syndications and is always looking to give to those who want to learn. Jennifer received her BA from UCLA and her background is in fine art, art auctions, direct sales, and sales management.
-    
+
 %section.text-center.meetup-bg
   %h3 Join Our Events
   -# %a.btn.join-us{:href => "https://www.meetup.com/bacomm/", :target => "_blank"}
@@ -37,17 +37,17 @@
 %section.container.events-data
   .list-selection
     %ul#building_type_menu.list-unstyled
-      %li{class: (params[:events] == 'past')? '' : 'active'}
-        %a{:href => root_url } Upcoming Events
-      %li{ class: (params[:events] == 'past')? 'active' : '' }
-        %a{:href => root_url(events: :past) } Past Events
-      
+      %li.li-class{class: (params[:events] == 'past')? '' : 'active'}
+        %a.toggle-ba{:href => 'javascript:;', "data-url" => root_url } Upcoming Events
+      %li.li-class{ class: (params[:events] == 'past')? 'active' : '' }
+        %a.toggle-ba{:href => 'javascript:;', "data-url" => root_url(events: :past) } Past Events
+
 
   #event-listing
     - if @events.present?
       = render partial: 'events', locals: {events: @events}
     - else
-      %h3.text-muted No upcoming events
+      %h3.text-muted No events
 
   - if @next_page.present?
     .text-center.pad-btm-5.load_more_events
