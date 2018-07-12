@@ -41,7 +41,8 @@
         %a{:href => root_url } Upcoming Events
       %li{ class: (params[:events] == 'past')? 'active' : '' }
         %a{:href => root_url(events: :past) } Past Events
-        
+      
+
   #event-listing
     - if @events.present?
       = render partial: 'events', locals: {events: @events}
@@ -51,6 +52,7 @@
   - if @next_page.present?
     .text-center.pad-btm-5.load_more_events
       = hidden_field_tag 'next_page', @next_page
+      = hidden_field_tag 'event_status', params[:events]
       = button_tag id: 'load_more_events', class: 'btn load-more' do
         %i.fa.fa-th{"aria-hidden" => "true"}
         More Events
