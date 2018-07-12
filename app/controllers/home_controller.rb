@@ -34,5 +34,6 @@ class HomeController < ApplicationController
       format: 'json',
       page: Settings.meetup.per_page
     }
+    @params.merge!(status: params[:events]) if params[:events].present?
   end
 end
