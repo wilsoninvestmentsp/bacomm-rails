@@ -10,8 +10,12 @@ class HomeController < ApplicationController
   end
 
   def get_events(meetup_params)
-    events = MeetupApi.new.events(meetup_params)
-    events(events)
+    begin
+      events = MeetupApi.new.events(meetup_params)
+      events(events)
+    rescue JSON::ParserError => e
+      retry
+    end
   end
 
   def events(events)
@@ -22,7 +26,6 @@ class HomeController < ApplicationController
       url_params = CGI.parse(uri.query)
       @next_page = url_params['offset'].first
     end
-
   end
 
   private

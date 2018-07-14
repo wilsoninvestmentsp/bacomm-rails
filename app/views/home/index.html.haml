@@ -38,9 +38,9 @@
   .list-selection
     %ul#building_type_menu.list-unstyled
       %li.li-class{class: (params[:events] == 'past')? '' : 'active'}
-        %a.toggle-ba{:href => 'javascript:;', "data-url" => root_url } Upcoming Events
+        %a.toggle-ba{:href => root_url, "data-remote" => true } Upcoming Events
       %li.li-class{ class: (params[:events] == 'past')? 'active' : '' }
-        %a.toggle-ba{:href => 'javascript:;', "data-url" => root_url(events: :past) } Past Events
+        %a.toggle-ba{:href => root_url(events: :past), "data-remote" => true  } Past Events
 
 
   #event-listing

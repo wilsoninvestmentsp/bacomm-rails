@@ -3,6 +3,7 @@
   <% if @next_page.present? %>
     $('#next_page').attr('value', "<%= @next_page %>");
     $('#event_status').val("<%= params['events'] %>")
+    $('.load_more_events').show();
   <% else %>
     $('.load_more_events').hide();
   <% end %>
