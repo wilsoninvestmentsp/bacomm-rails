@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     begin
       events = MeetupApi.new.events(meetup_params)
       events(events)
-    rescue JSON::ParserError => e
+    rescue JSON::ParserError
       retry
     end
   end
@@ -37,5 +37,6 @@ class HomeController < ApplicationController
       page: Settings.meetup.per_page
     }
     @meetup_params[:status] = params[:events] if params[:events].present?
+    @meetup_params[:desc] = true if params[:events] == 'past'
   end
 end
