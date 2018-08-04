@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_action :set_params, only: [:index, :more_events]
 
+  caches_action :index, expires_in: 7.days
   def index
     get_events(@meetup_params)
   end
