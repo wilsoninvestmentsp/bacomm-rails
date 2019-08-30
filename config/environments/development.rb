@@ -38,6 +38,8 @@ Rails.application.configure do
 
   # MeetUp
   MEETUP_API_KEY = ENV['MEETUP_API_KEY']
+  MEETUP_API_SECRET = ENV['MEETUP_API_SECRET']
+  OAUTH_REDIRECT_URL = 'https://a56129e8.ngrok.io/oauth2/meetup_api'
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

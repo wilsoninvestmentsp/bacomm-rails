@@ -284,6 +284,7 @@ DEPENDENCIES
   pg (~> 0.20.0)
   pry-rails
   rails (= 4.2.8)
+  rest-client
   rmagick
   rubyzoho
   sass-rails (~> 5.0)
@@ -294,4 +295,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.16.3
+   1.17.3

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'contact#new'
   post 'contact', to: 'contact#create', as: 'save_contact'
   get 'contact/zoho', to: 'contact#zoho_contact'
+  get 'connect_with_meetup', to: 'home#connect_with_meetup', as: :connect_with_meetup
+  get '/oauth2/meetup_api', to: 'oauth2#meetup_api'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
