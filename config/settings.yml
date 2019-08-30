@@ -1,3 +1,5 @@
 meetup:
   group_urlname: BACOMM
   per_page: 3
+  OAuth_api_end_point: https://secure.meetup.com/oauth2/access
+  authorize_end_point: https://secure.meetup.com/oauth2/authorize

@@ -3,11 +3,35 @@ class HomeController < ApplicationController
 
   #caches_action :index, expires_in: 7.days
   def index
-    get_events(@meetup_params)
+    api_token = ApiToken.find_by(platform: 'meetup')
+    begin
+      if api_token.present?
+        if api_token.expire_on > Time.now
+          state = params[:events].nil? ? 'upcoming' : params[:events]
+          events = RestClient.get "https://api.meetup.com/#{Settings.meetup.group_urlname}/events?status=#{state}&fields=featured_photo&desc=true", headers: { "Authorization" => "Bearer #{api_token.access_token}"}
+        else
+          # TODO fetch new access token using refresh token
+          access_response = RestClient.post Settings.meetup.OAuth_api_end_point, {client_id: MEETUP_API_KEY, client_secret: MEETUP_API_SECRET, grant_type: 'refresh_token', refresh_token: api_token.refresh_token}
+        end
+        @events = JSON.parse(events) rescue []
+      end
+
+      respond_to do |format|
+        format.js
+        format.html
+      end
+    rescue Exception => e
+      Rails.logger.error "Error: #{e.message} - #{e.backtrace.join('\n')}"
+      flash[:danger] = "Something went wrong. Please try after sometime"
+      redirect_to root_path
+    end
   end
 
   def more_events
     get_events(@meetup_params.merge(offset: params[:offset])) if params[:offset].present?
+  end
+
+  def connect_with_meetup
   end
 
   def get_events(meetup_params)

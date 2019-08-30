@@ -10,4 +10,14 @@ module HomeHelper
   def event_address(event_venue)
     "/api/v1/map.png?address=#{event_venue['address_1']},#{event_venue['city']},#{event_venue['state']}&width=600&height=300"
   end
+
+  def meetup_token_expired?
+    meetup_api_token = ApiToken.find_by(platform: 'meetup')
+    return true if meetup_api_token.nil?
+    meetup_api_token.expire_on < Time.now
+  end
+
+  def meetup_auth_url
+    "#{Settings.meetup.authorize_end_point}?client_id=#{MEETUP_API_KEY}&response_type=code&redirect_uri=#{OAUTH_REDIRECT_URL}&scope=ageless+event_management"
+  end
 end
