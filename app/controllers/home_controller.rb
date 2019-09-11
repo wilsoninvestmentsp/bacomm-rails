@@ -8,7 +8,8 @@ class HomeController < ApplicationController
       if api_token.present?
         if api_token.expire_on > Time.now
           state = params[:events].nil? ? 'upcoming' : params[:events]
-          events = RestClient.get "https://api.meetup.com/#{Settings.meetup.group_urlname}/events?status=#{state}&fields=featured_photo&desc=true", headers: { "Authorization" => "Bearer #{api_token.access_token}"}
+          next_month_end_date = state == 'upcoming' ? "&no_later_than=#{end_date_of_next_month}" : ''
+          events = RestClient.get "https://api.meetup.com/#{Settings.meetup.group_urlname}/events?status=#{state}&fields=featured_photo&desc=true#{next_month_end_date}", headers: { "Authorization" => "Bearer #{api_token.access_token}"}
         else
           # TODO fetch new access token using refresh token
           access_response = RestClient.post Settings.meetup.OAuth_api_end_point, {client_id: MEETUP_API_KEY, client_secret: MEETUP_API_SECRET, grant_type: 'refresh_token', refresh_token: api_token.refresh_token}
@@ -63,5 +64,9 @@ class HomeController < ApplicationController
     }
     @meetup_params[:status] = params[:events] if params[:events].present?
     @meetup_params[:desc] = true if params[:events] == 'past'
+  end
+
+  def end_date_of_next_month
+    (Time.now + 1.month).end_of_month.strftime('%Y-%m-%dT00:00:00')
   end
 end
