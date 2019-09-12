@@ -67,6 +67,6 @@ class HomeController < ApplicationController
   end
 
   def end_date_of_next_month
-    (Time.now + 1.month).end_of_month.strftime('%Y-%m-%dT00:00:00')
+    (Time.now + 2.month).end_of_month.strftime('%Y-%m-%dT00:00:00')
   end
 end
