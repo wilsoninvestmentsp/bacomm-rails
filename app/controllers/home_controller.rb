@@ -5,9 +5,9 @@ class HomeController < ApplicationController
   def index
     api_token = ApiToken.find_by(platform: 'meetup')
     begin
-      if api_token.present?
+      if api_token.present? && params[:events].present?
         if api_token.expire_on > Time.now
-          state = params[:events].nil? ? 'upcoming' : params[:events]
+          state = params[:events]
           next_month_end_date = state == 'upcoming' ? "&no_later_than=#{end_date_of_next_month}" : ''
           events = RestClient.get "https://api.meetup.com/#{Settings.meetup.group_urlname}/events?status=#{state}&fields=featured_photo#{next_month_end_date}", headers: { "Authorization" => "Bearer #{api_token.access_token}"}
         else
