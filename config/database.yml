@@ -1,18 +1,22 @@
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  username: postgres
-  password: postgres
-  host: localhost
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
+#   username: postgres
+#   password: postgres
+#   host: localhost
 
-development:
-  <<: *default
-  database: caregivers_development
+# development:
+#   <<: *default
+#   database: caregivers_development
 
-test:
-  <<: *default  
-  database: caregivers_test
+# test:
+#   <<: *default  
+#   database: caregivers_test
 
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  username: ehbezhckkvowld
+  password: f974d2e382dae7754e175a7583cd33f08bfabaf6a990fec16635175433e16adf
+  host: ec2-54-87-112-29.compute-1.amazonaws.com
+  port: 5432
+  database: caregivers_production
