@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.7.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'bigdecimal', '1.4.2'
 gem 'rails', '4.2.8'
 # Use mysql as the database for Active Record
 # gem 'mysql2', '>= 0.3.13', '< 0.5'
